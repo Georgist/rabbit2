@@ -119,7 +119,7 @@ function showText() {
     var chars = document.querySelectorAll('.char, .chars');
     for (var i=0; i<chars.length; i++) {
         (function(i){
-            setTimeout(function(){ 
+            setTimeout(function(){
                 chars[i].classList.add('show');
             }, i*interval);
         })(i);
