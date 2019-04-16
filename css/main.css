@@ -80,6 +80,9 @@ body {
         right: calc(100% - 1px);
         border-width: 7px 7px 7px 0;
         border-color: transparent white transparent transparent; }
+  .rabbit-canvas-wrapper.left-edge .rabbit-close-btn {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg); }
   .rabbit-canvas-wrapper.right-edge .rabbit-wrapper {
     left: 100%;
     -webkit-transform: rotate(270deg);
@@ -98,7 +101,9 @@ body {
         border-color: transparent transparent transparent white; }
   .rabbit-canvas-wrapper.right-edge .rabbit-close-btn {
     left: 0;
-    right: auto; }
+    right: auto;
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg); }
   .rabbit-canvas-wrapper.top-edge .rabbit-wrapper {
     top: -160px;
     -webkit-transform: rotate(180deg);
@@ -115,7 +120,9 @@ body {
       border-color: transparent transparent white transparent; }
   .rabbit-canvas-wrapper.top-edge .rabbit-close-btn {
     bottom: -5px;
-    top: auto; }
+    top: auto;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
   .rabbit-canvas-wrapper.bottom-edge .rabbit-wrapper {
     top: 100%;
     -webkit-transform: rotate(0);
@@ -127,6 +134,9 @@ body {
             transform: translateX(-50%);
     border-width: 7px 7px 0 7px;
     border-color: white transparent transparent transparent; }
+  .rabbit-canvas-wrapper.bottom-edge .rabbit-close-btn {
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
   .rabbit-canvas-wrapper.rabbit-toggle .rabbit-wrapper {
     opacity: 1;
     pointer-events: all; }
@@ -202,6 +212,10 @@ body {
     -webkit-transform: rotate(5deg);
             transform: rotate(5deg);
     border-radius: 35% 95% 0% 0%; }
+  .html.browser-moz.os-mac .rabbit-ears,
+  .html.browser-webkit.os-mac .rabbit-ears {
+    height: 42%;
+    top: -19%; }
 
 .rabbit-body {
   position: absolute;
@@ -311,9 +325,9 @@ body {
   width: 140%;
   -webkit-transform: translate3d(-50%, -100%, 0);
           transform: translate3d(-50%, -100%, 0);
-  font-family: "Courier New", "Helvetica", Arial, sans-serif;
+  font-family: "Lato", "Courier New", "Helvetica", Arial, sans-serif;
   font-size: 0.85rem;
-  line-height: 110%;
+  line-height: 115%;
   text-align: center;
   min-width: 160px;
   max-width: 220px;
@@ -356,23 +370,57 @@ body {
   -webkit-transform: perspective(1px);
           transform: perspective(1px); }
 
-.rabbit-close-btn {
-  position: absolute;
-  right: 0;
-  top: -5px;
+.rabbit-close-btn,
+.rabbit-destroy-btn {
   padding: 12px;
+  position: absolute;
   -webkit-box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
+  border-radius: 100%;
   background: white;
   cursor: pointer;
   -webkit-transition: opacity .3s ease-in-out;
   transition: opacity .3s ease-in-out;
-  opacity: .5;
+  opacity: .75;
   z-index: 10; }
-  .rabbit-close-btn:hover {
+  .rabbit-close-btn:hover,
+  .rabbit-destroy-btn:hover {
     opacity: 1; }
-  .rabbit-close-btn::before, .rabbit-close-btn::after {
+
+.rabbit-close-btn {
+  right: 0;
+  top: -5px; }
+  .rabbit-close-btn span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 5%;
+    background-color: #252122; }
+  .rabbit-close-btn span::before,
+  .rabbit-close-btn span::after {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background-color: #252122; }
+  .rabbit-close-btn span::before {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    left: -2px;
+    top: 6.5px; }
+  .rabbit-close-btn span::after {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    left: 2px;
+    top: 6.5px; }
+
+.rabbit-destroy-btn {
+  right: -35px;
+  top: -55px; }
+  .rabbit-destroy-btn::before, .rabbit-destroy-btn::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -380,10 +428,10 @@ body {
     height: 45%;
     width: 4%;
     background-color: #252122; }
-  .rabbit-close-btn::after {
+  .rabbit-destroy-btn::after {
     -webkit-transform: translate(-50%, -50%) rotate(45deg);
             transform: translate(-50%, -50%) rotate(45deg); }
-  .rabbit-close-btn::before {
+  .rabbit-destroy-btn::before {
     -webkit-transform: translate(-50%, -50%) rotate(135deg);
             transform: translate(-50%, -50%) rotate(135deg); }
 

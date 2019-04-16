@@ -114,6 +114,14 @@ function generateSpans(element) {
     }
 }
 
+function rerun() {
+    var chars = document.querySelectorAll('.char, .chars');
+    for (var i=0; i<chars.length; i++) {
+        chars[i].classList.remove('show');
+    }
+    setTimeout(showText, 1000);
+}
+
 function showText() {
     var interval = 20; //ms
     var chars = document.querySelectorAll('.char, .chars');
@@ -139,7 +147,7 @@ function rerun() {
     for (var i=0; i<chars.length; i++) {
         chars[i].classList.remove('show');
     }
-    setTimeout(showText, 1000);
+    setTimeout(showText, 300);
 }
 /* ============================================================================================ */
 
@@ -227,49 +235,49 @@ BunnyMessages.messages = [
     {
         html: 'Howdy! Welcome to Eggsponea!',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 1, // sec
-        repeatInterval: 100, // sec
+        repeatInterval: 1, // sec
     },
     {
         html: 'Lost? Start from the eggining.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Be a hoptimist. But don\'t eggsagerate.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'You say import, I say eggsport.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Have you tried Eggsperiments feature?',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Divide and rule. Use Seggmentations.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'They say I should eggsercise. But I just doesn’t carrot all.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
@@ -283,63 +291,63 @@ BunnyMessages.messages = [
     {
         html: 'I have so many easter puns it’s not even bunny.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Gotye? Isn’t that just some bunny that I used to know?',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'That fourth cup of coffee was a mistake. Now I’m all hopped up.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 100, // sec
     },
     {
         html: 'Don’t wait for me to start the meeting. I might be a rabbit late.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 200, // sec
     },
     {
         html: 'What did I get my girlfriend for her birthday? A 10-carrot ring. Yeah.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'In order to be a good leader, you need to lead by eggzample.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Find and replace? Use regg eggs.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'How are rabbits and calculators alike? They multiply quickly.',
         url: null,
-        probability: 0.85, // %/100
+        probability: 1, // %/100
         displayAfter: 14, // sec
         repeatInterval: 35, // sec
     },
     {
         html: 'How many rabbits does it take to change a light bulb? Only one if it hops right to it.',
         url: null,
-        probability: 0.55, // %/100
+        probability: 1, // %/100
         displayAfter: 10, // sec
         repeatInterval: 150, // sec
     },
@@ -359,11 +367,6 @@ BunnyMessages.messages = [
     },
 ];
 
-BunnyMessages.init();
-BunnyMessages.bind(function(message) {
-    rabbitBehavior.fillUpTooltip(message.html);
-});
-
 // })();
 /* ============================================================================================ */
 
@@ -376,34 +379,58 @@ if (!window.rabbitBehavior) {
         canvasWrapper: document.querySelector('.rabbit-canvas-wrapper'),
         rabbitTooltipInner: document.querySelector('.rabbit-tooltip-inner'),
         closeBtn: document.querySelector('.rabbit-close-btn'),
+        destroyBtn: document.querySelector('.rabbit-destroy-btn'),
         rabbitTooltipMainContent: document.querySelector('.rabbit-tooltip-main-content'),
         rabbitTooltipOptContent: document.querySelector('.rabbit-tooltip-opt-content'),
         rabbitTooltipHtml: '<p>Howdy! Welcome to Eggsponea!</p>',
-        initRoundPassed: false,
-        initLoop: false,
-        afterInitInterval: null,
+        //initRoundPassed: false,
+        //initRound: true,
+        afterInitRoundInterval: null,
         intervalDuration: 15000,
-        init: function() {
-            if(!this.canvasWrapper) {
-                return;
-            }
-            this.initLoop = true;
-            this.position();
-            // starts loop
-            this.stateNone();
-
-            // bind events
-            this.close();
-            this.onClick();
-            this.onHover();
-            this.onBlur();
-        },
+        isRabbitDestroyed: 'rabbit-easter-destroyed',
         STATE_NONE: 0,
         STATE_EARS_OUT: 1,
         STATE_RABBIT_OUT: 2,
         STATE_RABBIT_SPEAKS: 3,
         state: undefined,
         timeoutRef: null,
+        preventBlur: false,
+        init: function() {
+            this.bindEvents();
+            this.start();
+            //this.initRound = false;
+        },
+
+        bindEvents: function() {
+            this.close();
+            this.destroy();
+            this.onClick();
+            this.onHover();
+            this.onBlur();
+        },
+
+        // TODO maybe remove this function, its used on one place
+        start: function () {
+            this.position();
+            // starts loop
+            this.stateNone(); // first round starts from 0
+        },
+
+        removeStyles: function() {
+            this.canvasWrapper.classList.remove('left-edge', 'right-edge', 'top-edge', 'bottom-edge');
+            this.rabbitWrapper.removeAttribute('style');
+        },
+
+        clearStates: function() {
+            clearTimeout(rabbitBehavior.timeoutRef);
+            clearInterval(rabbitBehavior.afterInitRoundInterval);
+        },
+
+        restart: function() {
+            this.state = this.STATE_EARS_OUT;
+            this.stateRabbitOut(); // second round starts from 1
+        },
+
         position: function(position) {
             var setPosition;
             if(position) {
@@ -463,8 +490,9 @@ if (!window.rabbitBehavior) {
                 setContent = this.rabbitTooltipHtml;
             }
             this.rabbitTooltipMainContent.innerHTML = setContent;
-            generateSpans(this.rabbitTooltipInner);
+            generateSpans(this.rabbitTooltipMainContent);
         },
+
         slideToggle: function() {
             this.canvasWrapper.classList.toggle('rabbit-sliding-up');
         },
@@ -494,8 +522,20 @@ if (!window.rabbitBehavior) {
             if(this.closeBtn) {
                 this.closeBtn.addEventListener('click', function(){
                     if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
+                        rabbitBehavior.preventBlur = true;
+                        console.log(rabbitBehavior.state, rabbitBehavior.preventBlur);
                         rabbitBehavior.stateRabbitOut();
                     }
+                });
+            }
+        },
+
+        destroy: function() {
+            if(this.destroyBtn) {
+                this.destroyBtn.addEventListener('click', function(){
+                    rabbitBehavior.clearStates();
+                    rabbitBehavior.canvasWrapper.remove();
+                    localStorage.setItem(rabbitBehavior.isRabbitDestroyed, 'yes');
                 });
             }
         },
@@ -503,16 +543,14 @@ if (!window.rabbitBehavior) {
         onClick: function(){
             this.rabbitWrapper.addEventListener('click', function(){
                 if(rabbitBehavior.state === rabbitBehavior.STATE_EARS_OUT) {
-                    // TODO perhaps move to separate function
-                    if(this.initLoop){
-                        this.initRoundPassed = true;
-                        if(this.initRoundPassed) {
-                            clearInterval(rabbitBehavior.afterInitInterval);
-                            this.intervalRef();
-                        }
-                    }
+                    //this.removeStyles();
+                    //this.runAfterInitRoundInterval();
 
+                    //this.restart();
+                    rabbitBehavior.clearStates();
                     rabbitBehavior.stateRabbitOut();
+
+                    //rabbitBehavior.stateRabbitOut();
                 }
             });
         },
@@ -520,23 +558,26 @@ if (!window.rabbitBehavior) {
         onHover: function(){
             this.rabbitWrapper.addEventListener('mouseover', function(){
                 if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
-                    clearTimeout(rabbitBehavior.timeoutRef);
-                    clearInterval(rabbitBehavior.afterInitInterval);
+                    //clearTimeout(rabbitBehavior.timeoutRef);
+                    //clearInterval(rabbitBehavior.afterInitRoundInterval);
+                    rabbitBehavior.clearStates();
                 }
             });
         },
 
         onBlur: function(){
-            this.rabbitWrapper.addEventListener('mouseleave', function(){
-                if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
-                    setTimeout(function(){
-                        rabbitBehavior.stateRabbitOut();
-                    }, 3000);
-                }
-            });
+            if(!rabbitBehavior.preventBlur) {
+                this.rabbitWrapper.addEventListener('mouseleave', function(){
+                    if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
+                        setTimeout(function(){
+                            rabbitBehavior.stateRabbitOut();
+                        }, 3000);
+                    }
+                });
+            }
         },
 
-        intervalRef: function(duration){
+        runAfterInitRoundInterval: function(duration){
             var setDuration;
             if(duration && !isNaN(duration)) {
                 setDuration = duration;
@@ -544,28 +585,38 @@ if (!window.rabbitBehavior) {
                 setDuration = this.intervalDuration;
             }
 
-            this.afterInitInterval = setInterval(function(){
-                clearTimeout(rabbitBehavior.timeoutRef);
-                rabbitBehavior.clearStates();
+            this.clearStates();
+            this.afterInitRoundInterval = setInterval(function(){
+                //clearTimeout(rabbitBehavior.timeoutRef);
+                rabbitBehavior.removeStyles();
                 rabbitBehavior.position();
-                rabbitBehavior.stateRabbitOut();
+                rabbitBehavior.restart();
+                // rabbitBehavior.stateRabbitOut();
             }, setDuration);
         },
 
-        clearStates: function() {
-            this.canvasWrapper.classList.remove('left-edge', 'right-edge', 'top-edge', 'bottom-edge');
-            this.rabbitWrapper.removeAttribute('style');
-        },
+        /*afterInitRound: function() {
+            // dont run on first round
+            //if(!this.initRound){
+            //if(this.initRoundPassed) {
+                //clearInterval(rabbitBehavior.afterInitRoundInterval);
+                // TODO setTimeout?
+                this.clearStates();
+                this.runAfterInitRoundInterval();
+                //}
+            //}
+        },*/
 
         // STEP 0
         stateNone: function() {
             if(this.state === undefined) {
                 this.timeoutRef = setTimeout(this.stateEarsOut.bind(this));
             }
-            if(this.state === this.STATE_EARS_OUT) {
-                this.earsWaveToggle();
-                this.eyesBlinkToggle();
-            }
+            // TODO it will never get here I think
+            // if(this.state === this.STATE_EARS_OUT) {
+            //     this.earsWaveToggle();
+            //     this.eyesBlinkToggle();
+            // }
 
             this.state = this.STATE_NONE;
         },
@@ -581,16 +632,10 @@ if (!window.rabbitBehavior) {
             if(this.state === this.STATE_RABBIT_OUT) {
                 this.slideFake(rabbitBehavior.slideToggle());
                 setTimeout(this.slideRemove.bind(this), 2200);
-
-                // TODO perhaps move to separate function
-                // exception
-                if(this.initLoop){
-                    this.initRoundPassed = true;
-                    if(this.initRoundPassed) {
-                        clearInterval(rabbitBehavior.afterInitInterval);
-                        this.intervalRef();
-                    }
-                }
+                // only from second round
+                setTimeout(function () {
+                    rabbitBehavior.runAfterInitRoundInterval();
+                }, 2300);
             }
 
             this.state = this.STATE_EARS_OUT;
@@ -614,7 +659,8 @@ if (!window.rabbitBehavior) {
         stateRabbitSpeaks: function(){
             if(this.state === this.STATE_RABBIT_OUT) {
                 this.tooltipToggle();
-                showText();
+                //showText();
+                rerun();
                 this.timeoutRef = setTimeout(this.stateRabbitOut.bind(this), 6000);
             }
 
@@ -622,8 +668,34 @@ if (!window.rabbitBehavior) {
         }
     }
 }
-// TODO clear interval on user interaction (in each step)
-rabbitBehavior.init();
+
+window.addEventListener('DOMContentLoaded', function() {
+    // if wrapper element exists
+    if(this.canvasWrapper !== null) {
+        // if rabbit must be destroyed
+        if(localStorage.getItem(rabbitBehavior.isRabbitDestroyed) === 'yes') {
+            rabbitBehavior.canvasWrapper.remove();
+        } else {
+            // if first round
+            /*if(this.initRound) {*/
+                BunnyMessages.init();
+                BunnyMessages.bind(function(message) {
+                    // if message is filled out and is not empty
+                    if(message && message !== "") {
+                        // if rabbitBehavior object exists
+                        if (window.rabbitBehavior) {
+                            rabbitBehavior.fillUpTooltip(message.html);
+                            rabbitBehavior.init();
+                        }
+                    }
+                });
+            // after first round
+            /*} else {
+                rabbitBehavior.start();
+            }*/
+        }
+    }
+});
 
 //})();
 
@@ -648,14 +720,18 @@ rabbitBehavior.init();
 // DONE start setTimeout hell
 // DONE parameterize rabbitBehavior init function (send tooltip text, option to send innerHtml)
 
-
-
 // TODO -- LAST TODOS
-// TODO animate text everytime bubble shows up
+// TODO //DONE animate text everytime bubble shows up
 // TODO //DONE fix hover and blur state
-// TODO add another Destory btn to completelly remove rabbit forever(localstorage condition)
+// TODO //DONE add another Destory btn to completely remove rabbit forever(localstorage condition)
 // TODO //DONE add drop-shadow to inner div of rabbit
+// TODO //DONE fix empty bubble bug
 // TODO try to improve random position of rabbit
-// TODO fix empty bubble bug
 // TODO //DONE on blur remove bubble after timeout
 // TODO //DONE make more visible Close button
+// TODO //DONE adjust ears for mac
+// TODO (play rabbit only in active tab)
+// TODO //DONE change bubble font family
+// TODO revert close and destroy btn colors
+// TODO autoprefixer support
+// TODO fix multiple hovers/blurs
