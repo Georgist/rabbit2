@@ -88,15 +88,10 @@ $rabbit-tooltip-wrapper-shadow: 0 0 20px 4px rgba(black, .12);
 $rabbit-tooltip-chevron-bg: $rabbit-tooltip-wrapper-bg;
 $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-body {
-	height: 120vh;
 }
 
 .rabbit-canvas-wrapper {
@@ -133,7 +128,7 @@ body {
 		}
 
 		.rabbit-tooltip-wrapper {
-			top: -38%;
+			top: -42%;
 
 			.rabbit-tooltip-inner {
 				transform: rotate(-90deg);
@@ -160,7 +155,7 @@ body {
 		}
 
 		.rabbit-tooltip-wrapper {
-			top: -38%;
+			top: -42%;
 
 			.rabbit-tooltip-inner {
 				transform: rotate(90deg);
@@ -270,6 +265,10 @@ body {
 			transform: translate(-50%, -100%);
 			opacity: 1;
 			pointer-events: all;
+		}
+
+		.rabbit-destroy-btn {
+			transform: translateY(125px);
 		}
 	}
 
@@ -493,6 +492,12 @@ body {
 	}
 }
 
+.rabbit-tooltip-opt-content {
+	&.hidden {
+		display: none;
+	}
+}
+
 .rabbit-tooltip-main-content,
 .rabbit-tooltip-opt-content {
 	backface-visibility: hidden;
@@ -507,7 +512,7 @@ body {
 	border-radius: 100%;
 	background: white;
 	cursor: pointer;
-	transition: opacity .3s ease-in-out;
+	transition: opacity .3s ease-in-out, transform .15s ease-in-out;
 	opacity: .75;
 	z-index: 10;
 
@@ -521,12 +526,12 @@ body {
 
 	span {
 		position: absolute;
-		top: 50%;
+		top: 40%;
 		left: 50%;
 		height: 50%;
 		transform: translate(-50%, -50%);
 		width: 5%;
-		background-color: #252122;
+		background-color: transparent;
 	}
 
 	span::before,
@@ -550,7 +555,7 @@ body {
 }
 .rabbit-destroy-btn {
 	right: -35px;
-	top: -55px;
+	top: -58px;
 
 	&::before,
 	&::after {
@@ -572,14 +577,14 @@ body {
 
 .rabbit-play-btn {
 	font-size: 0.7rem;
-	line-height: 1;
+	line-height: 1.1;
 	text-transform: uppercase;
 	letter-spacing: .8px;
 	color: black;
-	opacity: .35;
+	opacity: .4;
 	font-family: 'Helvetica', Arial, sans-serif;
-	margin-top: 10px;
-	margin-bottom: 2px;
+	margin-top: 12px;
+	margin-bottom: 4px;
 	display: block;
 }
 
@@ -593,26 +598,24 @@ body {
 	opacity: .35;
 	font-weight: bold;
 	display: inline-block;
-	padding: 3px 6px;
+	padding: 4px 7px;
 	border-radius: 2px;
-	text-decoration: underline;
 	transition: opacity .25s ease, color .25s ease, background-color .25s ease;
-
-	&:hover {
-		opacity: 1;
-	}
+	opacity: 1;
 }
 .rabbit-play-btn-yes {
+	color: #05c46b;
+	background-color: rgba(#05c46b, .1);
 	&:hover {
-		color: #05c46b;
-		background-color: rgba(#05c46b, .1);
+		background-color: rgba(#05c46b, .2);
 	}
 }
 
 .rabbit-play-btn-no {
+	color: #ff3f34;
+	background-color: rgba(#ff3f34, .1);
 	&:hover {
-		color: #ff3f34;
-		background-color: rgba(#ff3f34, .1);
+		background-color: rgba(#ff3f34, .2);
 	}
 }
 

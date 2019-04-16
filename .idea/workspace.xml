@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a99e4547-3eb9-485f-8233-c4ab6e370ad7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
@@ -28,8 +27,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+            <state relative-caret-position="-11">
+              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <folding>
+                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#11;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sass/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="547" column="16" selection-start-line="547" selection-start-column="16" selection-end-line="547" selection-end-column="16" />
+            <state relative-caret-position="397">
+              <caret line="271" column="9" selection-start-line="271" selection-start-column="9" selection-end-line="271" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -46,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="736" column="27" selection-start-line="736" selection-start-column="27" selection-end-line="736" selection-end-column="27" />
+            <state relative-caret-position="587">
+              <caret line="665" column="76" selection-start-line="665" selection-start-column="76" selection-end-line="665" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -56,18 +59,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drop</find>
-      <find>console.log</find>
-      <find>generate</find>
-      <find>fillupTool</find>
-      <find>fillup</find>
-      <find>hover</find>
-      <find>rest</find>
-      <find>show</find>
-      <find>-ears</find>
-      <find>// TODO perhaps move to separate function</find>
-      <find>round</find>
-      <find>afterInitInterval</find>
       <find>initLoop</find>
       <find>if(this.initLoop){</find>
       <find>restart</find>
@@ -80,12 +71,24 @@
       <find>this.STATE_NONE</find>
       <find>$rabbit-tooltip-wrapper-font-family</find>
       <find>rabbit-close</find>
-      <find>rabbit-destroy-btn</find>
       <find>rabbit-close-btn</find>
       <find>local</find>
       <find>close-btn</find>
-      <find>destroy</find>
       <find>.close</find>
+      <find>rabbit-toggle</find>
+      <find>rabbit-destroy-btn</find>
+      <find>destroy</find>
+      <find>.destroy();</find>
+      <find>rabbitTooltipOptContent</find>
+      <find>opt-conten</find>
+      <find>rabbit-confirm-destroy-btn</find>
+      <find>destroy-btn</find>
+      <find>EARS_OUT</find>
+      <find>.rabbit-tooltip-main-content</find>
+      <find>rabbit-play-btn-yes</find>
+      <find>no</find>
+      <find>rabbit-tooltip</find>
+      <find>.rabbit-destroy-btn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,6 +99,7 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/sass/main.scss" />
         <option value="$PROJECT_DIR$/js/main.js" />
       </list>
@@ -103,7 +107,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
-    <option name="width" value="1781" />
+    <option name="width" value="1294" />
     <option name="height" value="1407" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -118,6 +122,11 @@
             <path>
               <item name="rabbit2" type="b2602c69:ProjectViewProjectNode" />
               <item name="rabbit2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rabbit2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rabbit2" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rabbit2" type="b2602c69:ProjectViewProjectNode" />
@@ -139,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../artemis-project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -195,25 +204,25 @@
       <option name="presentableId" value="Default" />
       <updated>1555308251538</updated>
       <workItem from="1555308252751" duration="22178000" />
-      <workItem from="1555360156461" duration="13052000" />
+      <workItem from="1555360156461" duration="20711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35230000" />
+    <option name="totallyTimeSpent" value="42889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7092391" visible="true" weight="0.17527822" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7092469" visible="true" weight="0.17527822" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Gulp" order="2" sideWeight="0.29076087" side_tool="true" visible="true" weight="0.17527822" />
+      <window_info id="Gulp" order="2" sideWeight="0.2907531" side_tool="true" visible="true" weight="0.17527822" />
       <window_info id="npm" order="3" sideWeight="0.5005225" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.12727273" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17075099" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -257,24 +266,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sass/main.scss">
+    <entry file="file://$PROJECT_DIR$/node_modules/node-sass/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="547" column="16" selection-start-line="547" selection-start-column="16" selection-end-line="547" selection-end-column="16" />
+        <state relative-caret-position="336">
+          <caret line="290" column="25" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+        <state relative-caret-position="-11">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#11;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sass/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="271" column="9" selection-start-line="271" selection-start-column="9" selection-end-line="271" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="736" column="27" selection-start-line="736" selection-start-column="27" selection-end-line="736" selection-end-column="27" />
+        <state relative-caret-position="587">
+          <caret line="665" column="76" selection-start-line="665" selection-start-column="76" selection-end-line="665" selection-end-column="76" />
         </state>
       </provider>
     </entry>

@@ -383,9 +383,12 @@ if (!window.rabbitBehavior) {
         rabbitTooltipMainContent: document.querySelector('.rabbit-tooltip-main-content'),
         rabbitTooltipOptContent: document.querySelector('.rabbit-tooltip-opt-content'),
         rabbitTooltipHtml: '<p>Howdy! Welcome to Eggsponea!</p>',
+        confirmYesBtn: document.querySelector('.rabbit-confirm-yes-btn'),
+        confirmNoBtn: document.querySelector('.rabbit-confirm-no-btn'),
         //initRoundPassed: false,
         //initRound: true,
         afterInitRoundInterval: null,
+        onBlurTimeout: null,
         intervalDuration: 15000,
         isRabbitDestroyed: 'rabbit-easter-destroyed',
         STATE_NONE: 0,
@@ -403,10 +406,12 @@ if (!window.rabbitBehavior) {
 
         bindEvents: function() {
             this.close();
-            this.destroy();
             this.onClick();
             this.onHover();
             this.onBlur();
+            this.openConfirm();
+            this.confirmDestroy();
+            this.confirmHide();
         },
 
         // TODO maybe remove this function, its used on one place
@@ -523,7 +528,6 @@ if (!window.rabbitBehavior) {
                 this.closeBtn.addEventListener('click', function(){
                     if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
                         rabbitBehavior.preventBlur = true;
-                        console.log(rabbitBehavior.state, rabbitBehavior.preventBlur);
                         rabbitBehavior.stateRabbitOut();
                     }
                 });
@@ -531,11 +535,35 @@ if (!window.rabbitBehavior) {
         },
 
         destroy: function() {
+            rabbitBehavior.clearStates();
+            rabbitBehavior.canvasWrapper.remove();
+            localStorage.setItem(rabbitBehavior.isRabbitDestroyed, 'yes');
+        },
+
+        openConfirm: function() {
             if(this.destroyBtn) {
                 this.destroyBtn.addEventListener('click', function(){
-                    rabbitBehavior.clearStates();
-                    rabbitBehavior.canvasWrapper.remove();
-                    localStorage.setItem(rabbitBehavior.isRabbitDestroyed, 'yes');
+                    rabbitBehavior.rabbitTooltipOptContent.classList.remove('hidden');
+                    if(rabbitBehavior.state === rabbitBehavior.STATE_EARS_OUT) {
+                        rabbitBehavior.clearStates();
+                        rabbitBehavior.stateRabbitOut();
+                    }
+                });
+            }
+        },
+
+        confirmDestroy: function() {
+            if(this.confirmYesBtn) {
+                this.confirmYesBtn.addEventListener('click', function(){
+                    rabbitBehavior.destroy();
+                });
+            }
+        },
+
+        confirmHide: function() {
+            if(this.confirmNoBtn) {
+                this.confirmNoBtn.addEventListener('click', function(){
+                    rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');
                 });
             }
         },
@@ -560,21 +588,23 @@ if (!window.rabbitBehavior) {
                 if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
                     //clearTimeout(rabbitBehavior.timeoutRef);
                     //clearInterval(rabbitBehavior.afterInitRoundInterval);
+                    clearTimeout(rabbitBehavior.onBlurTimeout);
                     rabbitBehavior.clearStates();
                 }
             });
         },
 
         onBlur: function(){
-            if(!rabbitBehavior.preventBlur) {
-                this.rabbitWrapper.addEventListener('mouseleave', function(){
+            this.rabbitWrapper.addEventListener('mouseleave', function(){
+                console.log(!rabbitBehavior.preventBlur, rabbitBehavior.state);
+                if(!rabbitBehavior.preventBlur) {
                     if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
-                        setTimeout(function(){
+                        rabbitBehavior.onBlurTimeout = setTimeout(function(){
                             rabbitBehavior.stateRabbitOut();
                         }, 3000);
                     }
-                });
-            }
+                }
+            });
         },
 
         runAfterInitRoundInterval: function(duration){
@@ -632,6 +662,8 @@ if (!window.rabbitBehavior) {
             if(this.state === this.STATE_RABBIT_OUT) {
                 this.slideFake(rabbitBehavior.slideToggle());
                 setTimeout(this.slideRemove.bind(this), 2200);
+                rabbitBehavior.preventBlur = false;
+                rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');
                 // only from second round
                 setTimeout(function () {
                     rabbitBehavior.runAfterInitRoundInterval();
@@ -669,7 +701,7 @@ if (!window.rabbitBehavior) {
     }
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+//window.addEventListener('DOMContentLoaded', function() {
     // if wrapper element exists
     if(this.canvasWrapper !== null) {
         // if rabbit must be destroyed
@@ -695,7 +727,7 @@ window.addEventListener('DOMContentLoaded', function() {
             }*/
         }
     }
-});
+//});
 
 //})();
 
@@ -732,6 +764,8 @@ window.addEventListener('DOMContentLoaded', function() {
 // TODO //DONE adjust ears for mac
 // TODO (play rabbit only in active tab)
 // TODO //DONE change bubble font family
-// TODO revert close and destroy btn colors
-// TODO autoprefixer support
-// TODO fix multiple hovers/blurs
+// TODO //NOT revert close and destroy btn colors
+// TODO //NOT autoprefixer support
+// TODO //DONE fix multiple hovers/blurs
+// TODO on destroy add question to bubble
+// TODO fix destroy btn at the bottom of rabbits wrapper

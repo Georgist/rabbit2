@@ -35,9 +35,6 @@ a {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-body {
-  height: 120vh; }
-
 .rabbit-canvas-wrapper {
   position: fixed;
   height: 100%;
@@ -69,7 +66,7 @@ body {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg); }
   .rabbit-canvas-wrapper.left-edge .rabbit-tooltip-wrapper {
-    top: -38%; }
+    top: -42%; }
     .rabbit-canvas-wrapper.left-edge .rabbit-tooltip-wrapper .rabbit-tooltip-inner {
       -webkit-transform: rotate(-90deg);
               transform: rotate(-90deg); }
@@ -88,7 +85,7 @@ body {
     -webkit-transform: rotate(270deg);
             transform: rotate(270deg); }
   .rabbit-canvas-wrapper.right-edge .rabbit-tooltip-wrapper {
-    top: -38%; }
+    top: -42%; }
     .rabbit-canvas-wrapper.right-edge .rabbit-tooltip-wrapper .rabbit-tooltip-inner {
       -webkit-transform: rotate(90deg);
               transform: rotate(90deg); }
@@ -159,6 +156,9 @@ body {
             transform: translate(-50%, -100%);
     opacity: 1;
     pointer-events: all; }
+  .rabbit-canvas-wrapper.rabbit-show-tooltip .rabbit-destroy-btn {
+    -webkit-transform: translateY(125px);
+            transform: translateY(125px); }
   .rabbit-canvas-wrapper.rabbit-sliding-fake .rabbit-wrapper-inner {
     -webkit-animation: rabbit-sliding-fake 2s 1 cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
             animation: rabbit-sliding-fake 2s 1 cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; }
@@ -363,6 +363,9 @@ body {
       height: 0;
       border-style: solid; }
 
+.rabbit-tooltip-opt-content.hidden {
+  display: none; }
+
 .rabbit-tooltip-main-content,
 .rabbit-tooltip-opt-content {
   -webkit-backface-visibility: hidden;
@@ -379,8 +382,10 @@ body {
   border-radius: 100%;
   background: white;
   cursor: pointer;
-  -webkit-transition: opacity .3s ease-in-out;
-  transition: opacity .3s ease-in-out;
+  -webkit-transition: opacity .3s ease-in-out, -webkit-transform .15s ease-in-out;
+  transition: opacity .3s ease-in-out, -webkit-transform .15s ease-in-out;
+  transition: opacity .3s ease-in-out, transform .15s ease-in-out;
+  transition: opacity .3s ease-in-out, transform .15s ease-in-out, -webkit-transform .15s ease-in-out;
   opacity: .75;
   z-index: 10; }
   .rabbit-close-btn:hover,
@@ -392,13 +397,13 @@ body {
   top: -5px; }
   .rabbit-close-btn span {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     height: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     width: 5%;
-    background-color: #252122; }
+    background-color: transparent; }
   .rabbit-close-btn span::before,
   .rabbit-close-btn span::after {
     content: "";
@@ -419,7 +424,7 @@ body {
 
 .rabbit-destroy-btn {
   right: -35px;
-  top: -55px; }
+  top: -58px; }
   .rabbit-destroy-btn::before, .rabbit-destroy-btn::after {
     content: "";
     position: absolute;
@@ -437,14 +442,14 @@ body {
 
 .rabbit-play-btn {
   font-size: 0.7rem;
-  line-height: 1;
+  line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: .8px;
   color: black;
-  opacity: .35;
+  opacity: .4;
   font-family: 'Helvetica', Arial, sans-serif;
-  margin-top: 10px;
-  margin-bottom: 2px;
+  margin-top: 12px;
+  margin-bottom: 4px;
   display: block; }
 
 .rabbit-play-btn-yes,
@@ -457,22 +462,23 @@ body {
   opacity: .35;
   font-weight: bold;
   display: inline-block;
-  padding: 3px 6px;
+  padding: 4px 7px;
   border-radius: 2px;
-  text-decoration: underline;
   -webkit-transition: opacity .25s ease, color .25s ease, background-color .25s ease;
-  transition: opacity .25s ease, color .25s ease, background-color .25s ease; }
-  .rabbit-play-btn-yes:hover,
-  .rabbit-play-btn-no:hover {
-    opacity: 1; }
+  transition: opacity .25s ease, color .25s ease, background-color .25s ease;
+  opacity: 1; }
 
-.rabbit-play-btn-yes:hover {
+.rabbit-play-btn-yes {
   color: #05c46b;
   background-color: rgba(5, 196, 107, 0.1); }
+  .rabbit-play-btn-yes:hover {
+    background-color: rgba(5, 196, 107, 0.2); }
 
-.rabbit-play-btn-no:hover {
+.rabbit-play-btn-no {
   color: #ff3f34;
   background-color: rgba(255, 63, 52, 0.1); }
+  .rabbit-play-btn-no:hover {
+    background-color: rgba(255, 63, 52, 0.2); }
 
 @-webkit-keyframes rabbit-sliding-fake {
   0% {
