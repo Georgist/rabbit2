@@ -155,13 +155,15 @@ if (!window.BunnyMessages) {
     }
 }
 
+var generalProb = 0.25;
+
 BunnyMessages.messages = [
     {
         html: 'Howdy! Welcome to Eggsponea!',
         url: /home/,
         probability: 1, // %/100
         displayAfter: 1, // sec
-        repeatInterval: 1, // sec
+        repeatInterval: 50, // sec
     },
     {
         html: 'Lost? Start from the eggining.',
@@ -173,7 +175,7 @@ BunnyMessages.messages = [
     {
         html: 'Be a hoptimist. But don\'t eggsagerate.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
@@ -201,7 +203,7 @@ BunnyMessages.messages = [
     {
         html: 'They say I should eggsercise. But I just doesn’t carrot all.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
@@ -215,63 +217,63 @@ BunnyMessages.messages = [
     {
         html: 'I have so many easter puns it’s not even bunny.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Gotye? Isn’t that just some bunny that I used to know?',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'That fourth cup of coffee was a mistake. Now I’m all hopped up.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 100, // sec
     },
     {
         html: 'Don’t wait for me to start the meeting. I might be a rabbit late.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 200, // sec
     },
     {
         html: 'What did I get my girlfriend for her birthday? A 10-carrot ring. Yeah.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'In order to be a good leader, you need to lead by eggzample.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Find and replace? Use RegEggs.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'How are rabbits and calculators alike? They multiply quickly.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 14, // sec
         repeatInterval: 35, // sec
     },
     {
         html: 'How many rabbits does it take to change a light bulb? Only one if it hops right to it.',
         url: null,
-        probability: 1, // %/100
+        probability: generalProb, // %/100
         displayAfter: 10, // sec
         repeatInterval: 150, // sec
     }
@@ -281,8 +283,7 @@ BunnyMessages.messages = [
 /* ============================================================================================ */
 if (!window.rabbitBehavior) {
     var rabbitBehavior = {
-        allDirections: ['left', 'right', 'top', 'bottom'],
-        allDirectionClasses: ['left-edge', 'right-edge', 'top-edge', 'bottom-edge'],
+        allDirections: ['right', 'top', 'bottom'],
         rabbitWrapper: document.querySelector('.rabbit-wrapper'),
         canvasWrapper: document.querySelector('.rabbit-canvas-wrapper'),
         rabbitTooltipInner: document.querySelector('.rabbit-tooltip-inner'),
@@ -339,25 +340,21 @@ if (!window.rabbitBehavior) {
                 setPosition = this.randomDirection();
             }
 
-            this.canvasWrapper.classList.remove('left-edge', 'right-edge', 'top-edge', 'bottom-edge');
+            this.canvasWrapper.classList.remove('right-edge', 'top-edge', 'bottom-edge');
             this.rabbitWrapper.removeAttribute('style');
 
             switch (setPosition) {
                 case this.allDirections[0]:
-                    this.canvasWrapper.classList.add('left-edge');
+                    this.canvasWrapper.classList.add('right-edge');
                     this.setOppositeSide(this.allDirections[0], this.rabbitWrapper, this.generateRandomNumber(), this.getElemWidth());
                     break;
                 case this.allDirections[1]:
-                    this.canvasWrapper.classList.add('right-edge');
+                    this.canvasWrapper.classList.add('top-edge');
                     this.setOppositeSide(this.allDirections[1], this.rabbitWrapper, this.generateRandomNumber(), this.getElemWidth());
                     break;
                 case this.allDirections[2]:
-                    this.canvasWrapper.classList.add('top-edge');
-                    this.setOppositeSide(this.allDirections[2], this.rabbitWrapper, this.generateRandomNumber(), this.getElemWidth());
-                    break;
-                case this.allDirections[3]:
                     this.canvasWrapper.classList.add('bottom-edge');
-                    this.setOppositeSide(this.allDirections[3], this.rabbitWrapper, this.generateRandomNumber(), this.getElemWidth());
+                    this.setOppositeSide(this.allDirections[2], this.rabbitWrapper, this.generateRandomNumber(), this.getElemWidth());
                     break;
             }
         },
@@ -377,7 +374,7 @@ if (!window.rabbitBehavior) {
                 } else {
                     elem.style.left = value + '%';
                 }
-            } else if(direction === 'left' || direction === 'right') {
+            } else if(direction === 'right') {
                 if(value > 50) {
                     elem.style.top = 'calc('+ value +'% - '+ elemWidth +')';
                 } else {
@@ -566,7 +563,18 @@ if(this.canvasWrapper !== null) {
                 // if rabbitBehavior object exists
                 if (window.rabbitBehavior) {
                     rabbitBehavior.fillUpTooltip(message.html);
-                    rabbitBehavior.init();
+                    if (rabbitBehavior.state === undefined) {
+                        rabbitBehavior.init();
+                    }
+                    else {
+                        rabbitBehavior.clearStates();
+                        rabbitBehavior.canvasWrapper.classList.remove('right-edge', 'top-edge', 'bottom-edge');
+                        rabbitBehavior.rabbitWrapper.removeAttribute('style');
+                        rabbitBehavior.canvasWrapper.classList.remove('rabbit-toggle', 'rabbit-sliding-fake','rabbit-waving-ears', 'rabbit-blinking', 'rabbit-show-tooltip', 'rabbit-sliding-up');
+                        rabbitBehavior.state = rabbitBehavior.STATE_NONE;
+                        rabbitBehavior.position();
+                        rabbitBehavior.stateEarsOut();
+                    }
                 }
             }
         });

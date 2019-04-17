@@ -44,7 +44,7 @@ $rabbit-nose-wrapper-offset-top: 38%;
 $rabbit-nose-offset-left: 50%;
 
 $rabbit-mouth-width: 5%;
-$rabbit-mouth-wrapper-offset-top: 38%;
+$rabbit-mouth-wrapper-offset-top: 36.5%;
 
 $rabbit-tooltip-wrapper-bg: white;
 $rabbit-tooltip-wrapper-font-family: 'Lato', 'Courier New', 'Helvetica', Arial, sans-serif;
@@ -62,7 +62,7 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 120000;
 	overflow: hidden;
 	pointer-events: none; // HIDING
 	display: flex;
@@ -73,7 +73,7 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		white-space: nowrap;
 	}
 
-	.char {
+	.char, .chars {
 		position: relative;
 		display: inline-block;
 		opacity: 0;
@@ -83,33 +83,6 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		}
 	}
 
-	// STEP 1 - A
-	&.left-edge {
-		.rabbit-wrapper {
-			left: -$wrapper-width;
-			transform: rotate(90deg);
-		}
-
-		.rabbit-tooltip-wrapper {
-			top: -42%;
-
-			.rabbit-tooltip-inner {
-				transform: rotate(-90deg);
-
-				&::before {
-					transform: translateY(-50%);
-					top: 50%;
-					right: calc(100% - 1px);
-					border-width: 7px 7px 7px 0;
-					border-color: transparent $rabbit-tooltip-chevron-bg transparent transparent;
-				}
-			}
-		}
-
-		.rabbit-close-btn {
-			transform: rotate(90deg);
-		}
-	}
 	// STEP 1 - B
 	&.right-edge {
 		.rabbit-wrapper {
@@ -441,6 +414,7 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
+		zoom: 1.005;
 
 		&::before {
 			content: "";
@@ -512,7 +486,7 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 }
 .rabbit-destroy-btn {
-	right: -5px;
+	right: -8px;
 	top: -35px;
 
 	&::before,
