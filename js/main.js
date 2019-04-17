@@ -1,64 +1,5 @@
-//'use strict';
-
-/**Optionally add Bootstrap to your project**/
-//import 'bootstrap';
-
-//import '../css/style.scss';
-
-
-//// PSEUDO CODE
-// DONE create basic rabbit from html (resizable size)
-// DONE create keyframes sliding animation
-// DONE set default position of rabbit
-// DONE create JS functionality that randomly position rabbit on the edges of viewport
-// DONE improve rabbit html
-// DONE create bubble with text for rabbit
-// DONE create close button in html
-// create close button functionality that destroys rabbit and sets some value to localstorage
-// DONE solve white color issue
-// DONE adjust tooltip for each position
-// DONE separate sliding keyframes into two
-// DONE fix canvas wrapper
-
-// BONUS:
-// DONE ears slightly movings to sides
-// DONE animate ears border-radius
-// DONE animated eyes
-// DONE typing sentence in tooltip keyframe
-
-
-// RULES:
-// DONE position in fixed percentage
-// DONE width in fixed percentage
-
-
-// JS FUNCTIONALITY STEPS
-// DONE get rabbit wrapper
-// DONE get canvas wrapper
-// DONE create array with 4 directions
-// DONE generate one of the sides in switch/case [1(left), 2(right), 3(top), 4(bottom)]
-// DONE generate the other side
-// DONE generate random percentage value for other side
-// DONE chosen case will execute -> generate value for second position
-//  						-> add appropriate class to canvas-wrapper
-// DONE prevent rabbit from overflowing canvas-wrapper
-// DONE correct generateRandomPercentage minus width of rabbit (from data attr)
-// remove all -edge classes after the current round
-// create interval
-
-// PART OF THE GAME
-// click on X close button, hides and destroys rabbit
-// Want to play?
-//		 					yes - hide .rabbit-play-btn and start the game
-// 							no - the same as X close button, hides and destroys rabbit
-
-
-// exponea logo on belly button
-
-// fill destroy function
-
-//(function() {
 /* ============================================================================================ */
+
 function generateSpans(element) {
     if(!element) {
         return;
@@ -114,14 +55,6 @@ function generateSpans(element) {
     }
 }
 
-function rerun() {
-    var chars = document.querySelectorAll('.char, .chars');
-    for (var i=0; i<chars.length; i++) {
-        chars[i].classList.remove('show');
-    }
-    setTimeout(showText, 1000);
-}
-
 function showText() {
     var interval = 20; //ms
     var chars = document.querySelectorAll('.char, .chars');
@@ -134,26 +67,17 @@ function showText() {
     }
 }
 
-/*document.addEventListener("DOMContentLoaded", function(event) {
-    var bubble = document.getElementsByClassName('bubble')[0];
-    generateSpans(bubble);
-
-    // start animation
-    setTimeout(showText, 1000);
-});*/
-
 function rerun() {
     var chars = document.querySelectorAll('.char, .chars');
     for (var i=0; i<chars.length; i++) {
         chars[i].classList.remove('show');
     }
-    setTimeout(showText, 300);
+    setTimeout(showText, 150);
 }
 /* ============================================================================================ */
 
 
 /* ============================================================================================ */
-// (function(){
 if (!window.BunnyMessages) {
     window.BunnyMessages = {
 
@@ -234,14 +158,14 @@ if (!window.BunnyMessages) {
 BunnyMessages.messages = [
     {
         html: 'Howdy! Welcome to Eggsponea!',
-        url: null,
+        url: /home/,
         probability: 1, // %/100
         displayAfter: 1, // sec
         repeatInterval: 1, // sec
     },
     {
         html: 'Lost? Start from the eggining.',
-        url: null,
+        url: /dashboards/,
         probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
@@ -255,21 +179,21 @@ BunnyMessages.messages = [
     },
     {
         html: 'You say import, I say eggsport.',
-        url: null,
+        url: /imports/,
         probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
-        html: 'Have you tried Eggsperiments feature?',
-        url: null,
+        html: 'Eggsperiments, don\'t you just love them?',
+        url: /experiments/,
         probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
     },
     {
         html: 'Divide and rule. Use Seggmentations.',
-        url: null,
+        url: /segmentations/,
         probability: 1, // %/100
         displayAfter: 2, // sec
         repeatInterval: 50, // sec
@@ -331,7 +255,7 @@ BunnyMessages.messages = [
         repeatInterval: 50, // sec
     },
     {
-        html: 'Find and replace? Use regg eggs.',
+        html: 'Find and replace? Use RegEggs.',
         url: null,
         probability: 1, // %/100
         displayAfter: 2, // sec
@@ -350,31 +274,15 @@ BunnyMessages.messages = [
         probability: 1, // %/100
         displayAfter: 10, // sec
         repeatInterval: 150, // sec
-    },
-    {
-        html: 'Hello CAMPAIGN',
-        url: /\/campaigns\/home/,
-        probability: 0.95, // %/100
-        displayAfter: 5, // sec
-        repeatInterval: 30, // sec
-    },
-    {
-        html: 'Hello LOGIN',
-        url: /\/login/,
-        probability: 1, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 0, // sec
-    },
+    }
 ];
-
-// })();
 /* ============================================================================================ */
-
 
 /* ============================================================================================ */
 if (!window.rabbitBehavior) {
     var rabbitBehavior = {
         allDirections: ['left', 'right', 'top', 'bottom'],
+        allDirectionClasses: ['left-edge', 'right-edge', 'top-edge', 'bottom-edge'],
         rabbitWrapper: document.querySelector('.rabbit-wrapper'),
         canvasWrapper: document.querySelector('.rabbit-canvas-wrapper'),
         rabbitTooltipInner: document.querySelector('.rabbit-tooltip-inner'),
@@ -385,8 +293,6 @@ if (!window.rabbitBehavior) {
         rabbitTooltipHtml: '<p>Howdy! Welcome to Eggsponea!</p>',
         confirmYesBtn: document.querySelector('.rabbit-confirm-yes-btn'),
         confirmNoBtn: document.querySelector('.rabbit-confirm-no-btn'),
-        //initRoundPassed: false,
-        //initRound: true,
         afterInitRoundInterval: null,
         onBlurTimeout: null,
         intervalDuration: 15000,
@@ -401,7 +307,6 @@ if (!window.rabbitBehavior) {
         init: function() {
             this.bindEvents();
             this.start();
-            //this.initRound = false;
         },
 
         bindEvents: function() {
@@ -421,19 +326,9 @@ if (!window.rabbitBehavior) {
             this.stateNone(); // first round starts from 0
         },
 
-        removeStyles: function() {
-            this.canvasWrapper.classList.remove('left-edge', 'right-edge', 'top-edge', 'bottom-edge');
-            this.rabbitWrapper.removeAttribute('style');
-        },
-
         clearStates: function() {
             clearTimeout(rabbitBehavior.timeoutRef);
             clearInterval(rabbitBehavior.afterInitRoundInterval);
-        },
-
-        restart: function() {
-            this.state = this.STATE_EARS_OUT;
-            this.stateRabbitOut(); // second round starts from 1
         },
 
         position: function(position) {
@@ -443,6 +338,9 @@ if (!window.rabbitBehavior) {
             } else {
                 setPosition = this.randomDirection();
             }
+
+            this.canvasWrapper.classList.remove('left-edge', 'right-edge', 'top-edge', 'bottom-edge');
+            this.rabbitWrapper.removeAttribute('style');
 
             switch (setPosition) {
                 case this.allDirections[0]:
@@ -496,6 +394,7 @@ if (!window.rabbitBehavior) {
             }
             this.rabbitTooltipMainContent.innerHTML = setContent;
             generateSpans(this.rabbitTooltipMainContent);
+            generateSpans(this.rabbitTooltipOptContent);
         },
 
         slideToggle: function() {
@@ -544,6 +443,7 @@ if (!window.rabbitBehavior) {
             if(this.destroyBtn) {
                 this.destroyBtn.addEventListener('click', function(){
                     rabbitBehavior.rabbitTooltipOptContent.classList.remove('hidden');
+                    rabbitBehavior.rabbitTooltipMainContent.classList.add('hidden');
                     if(rabbitBehavior.state === rabbitBehavior.STATE_EARS_OUT) {
                         rabbitBehavior.clearStates();
                         rabbitBehavior.stateRabbitOut();
@@ -564,6 +464,7 @@ if (!window.rabbitBehavior) {
             if(this.confirmNoBtn) {
                 this.confirmNoBtn.addEventListener('click', function(){
                     rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');
+                    rabbitBehavior.rabbitTooltipMainContent.classList.remove('hidden');
                 });
             }
         },
@@ -571,14 +472,8 @@ if (!window.rabbitBehavior) {
         onClick: function(){
             this.rabbitWrapper.addEventListener('click', function(){
                 if(rabbitBehavior.state === rabbitBehavior.STATE_EARS_OUT) {
-                    //this.removeStyles();
-                    //this.runAfterInitRoundInterval();
-
-                    //this.restart();
                     rabbitBehavior.clearStates();
                     rabbitBehavior.stateRabbitOut();
-
-                    //rabbitBehavior.stateRabbitOut();
                 }
             });
         },
@@ -586,8 +481,6 @@ if (!window.rabbitBehavior) {
         onHover: function(){
             this.rabbitWrapper.addEventListener('mouseover', function(){
                 if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
-                    //clearTimeout(rabbitBehavior.timeoutRef);
-                    //clearInterval(rabbitBehavior.afterInitRoundInterval);
                     clearTimeout(rabbitBehavior.onBlurTimeout);
                     rabbitBehavior.clearStates();
                 }
@@ -596,7 +489,6 @@ if (!window.rabbitBehavior) {
 
         onBlur: function(){
             this.rabbitWrapper.addEventListener('mouseleave', function(){
-                console.log(!rabbitBehavior.preventBlur, rabbitBehavior.state);
                 if(!rabbitBehavior.preventBlur) {
                     if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
                         rabbitBehavior.onBlurTimeout = setTimeout(function(){
@@ -607,47 +499,11 @@ if (!window.rabbitBehavior) {
             });
         },
 
-        runAfterInitRoundInterval: function(duration){
-            var setDuration;
-            if(duration && !isNaN(duration)) {
-                setDuration = duration;
-            } else {
-                setDuration = this.intervalDuration;
-            }
-
-            this.clearStates();
-            this.afterInitRoundInterval = setInterval(function(){
-                //clearTimeout(rabbitBehavior.timeoutRef);
-                rabbitBehavior.removeStyles();
-                rabbitBehavior.position();
-                rabbitBehavior.restart();
-                // rabbitBehavior.stateRabbitOut();
-            }, setDuration);
-        },
-
-        /*afterInitRound: function() {
-            // dont run on first round
-            //if(!this.initRound){
-            //if(this.initRoundPassed) {
-                //clearInterval(rabbitBehavior.afterInitRoundInterval);
-                // TODO setTimeout?
-                this.clearStates();
-                this.runAfterInitRoundInterval();
-                //}
-            //}
-        },*/
-
         // STEP 0
         stateNone: function() {
             if(this.state === undefined) {
                 this.timeoutRef = setTimeout(this.stateEarsOut.bind(this));
             }
-            // TODO it will never get here I think
-            // if(this.state === this.STATE_EARS_OUT) {
-            //     this.earsWaveToggle();
-            //     this.eyesBlinkToggle();
-            // }
-
             this.state = this.STATE_NONE;
         },
 
@@ -664,10 +520,7 @@ if (!window.rabbitBehavior) {
                 setTimeout(this.slideRemove.bind(this), 2200);
                 rabbitBehavior.preventBlur = false;
                 rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');
-                // only from second round
-                setTimeout(function () {
-                    rabbitBehavior.runAfterInitRoundInterval();
-                }, 2300);
+                rabbitBehavior.rabbitTooltipMainContent.classList.remove('hidden');
             }
 
             this.state = this.STATE_EARS_OUT;
@@ -691,7 +544,6 @@ if (!window.rabbitBehavior) {
         stateRabbitSpeaks: function(){
             if(this.state === this.STATE_RABBIT_OUT) {
                 this.tooltipToggle();
-                //showText();
                 rerun();
                 this.timeoutRef = setTimeout(this.stateRabbitOut.bind(this), 6000);
             }
@@ -701,71 +553,24 @@ if (!window.rabbitBehavior) {
     }
 }
 
-//window.addEventListener('DOMContentLoaded', function() {
-    // if wrapper element exists
-    if(this.canvasWrapper !== null) {
-        // if rabbit must be destroyed
-        if(localStorage.getItem(rabbitBehavior.isRabbitDestroyed) === 'yes') {
-            rabbitBehavior.canvasWrapper.remove();
-        } else {
-            // if first round
-            /*if(this.initRound) {*/
-                BunnyMessages.init();
-                BunnyMessages.bind(function(message) {
-                    // if message is filled out and is not empty
-                    if(message && message !== "") {
-                        // if rabbitBehavior object exists
-                        if (window.rabbitBehavior) {
-                            rabbitBehavior.fillUpTooltip(message.html);
-                            rabbitBehavior.init();
-                        }
-                    }
-                });
-            // after first round
-            /*} else {
-                rabbitBehavior.start();
-            }*/
-        }
+// if wrapper element exists
+if(this.canvasWrapper !== null) {
+    // if rabbit must be destroyed
+    if(localStorage.getItem(rabbitBehavior.isRabbitDestroyed) === 'yes') {
+        rabbitBehavior.canvasWrapper.remove();
+    } else {
+        BunnyMessages.init();
+        BunnyMessages.bind(function(message) {
+            // if message is filled out and is not empty
+            if(message && message !== "") {
+                // if rabbitBehavior object exists
+                if (window.rabbitBehavior) {
+                    rabbitBehavior.fillUpTooltip(message.html);
+                    rabbitBehavior.init();
+                }
+            }
+        });
     }
-//});
-
-//})();
+}
 
 /* ============================================================================================ */
-
-// SEQUENCE (15s)
-// start
-// DONE 1. position rabbit at 1 of the 4 positions
-// DONE 2. show rabbit
-// DONE 3. add UP sliding animation (eyes, ears...)
-// DONE 4. show tooltip with text
-// 5. (if user hover over rabbit stop everything)
-// 6. after X seconds play DOWN sliding animation
-// end
-// 6. repeat 3 times (set value to localStorage or sessionStorage and destroy rabbit)
-// end completely
-
-
-// TASKS FOR TODAY
-// DONE add link dont show again
-// DONE separate keyframe animations (sliding-up, sliding-down, show-tooltip, eyes-blinking, ears-waving)
-// DONE start setTimeout hell
-// DONE parameterize rabbitBehavior init function (send tooltip text, option to send innerHtml)
-
-// TODO -- LAST TODOS
-// TODO //DONE animate text everytime bubble shows up
-// TODO //DONE fix hover and blur state
-// TODO //DONE add another Destory btn to completely remove rabbit forever(localstorage condition)
-// TODO //DONE add drop-shadow to inner div of rabbit
-// TODO //DONE fix empty bubble bug
-// TODO try to improve random position of rabbit
-// TODO //DONE on blur remove bubble after timeout
-// TODO //DONE make more visible Close button
-// TODO //DONE adjust ears for mac
-// TODO (play rabbit only in active tab)
-// TODO //DONE change bubble font family
-// TODO //NOT revert close and destroy btn colors
-// TODO //NOT autoprefixer support
-// TODO //DONE fix multiple hovers/blurs
-// TODO on destroy add question to bubble
-// TODO fix destroy btn at the bottom of rabbits wrapper

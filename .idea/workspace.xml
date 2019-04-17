@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a99e4547-3eb9-485f-8233-c4ab6e370ad7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
@@ -27,11 +28,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            <state relative-caret-position="274">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#11;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="571" column="11" lean-forward="true" selection-start-line="571" selection-start-column="11" selection-end-line="571" selection-end-column="11" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#4737#7215#0" />
+                <element signature="e#7242#11128#0" />
               </folding>
             </state>
           </provider>
@@ -40,17 +54,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sass/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="271" column="9" selection-start-line="271" selection-start-column="9" selection-end-line="271" selection-end-column="9" />
+            <state relative-caret-position="315">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/main.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="665" column="76" selection-start-line="665" selection-start-column="76" selection-end-line="665" selection-end-column="76" />
+            <state relative-caret-position="504">
+              <caret line="21" column="23" lean-forward="true" selection-end-line="592" />
             </state>
           </provider>
         </entry>
@@ -59,36 +73,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>initLoop</find>
-      <find>if(this.initLoop){</find>
-      <find>restart</find>
-      <find>afterInitRound</find>
-      <find>initRoundPassed</find>
-      <find>stateEarsOut</find>
-      <find>rerun</find>
-      <find>clearstates</find>
-      <find>intervalRef</find>
-      <find>this.STATE_NONE</find>
-      <find>$rabbit-tooltip-wrapper-font-family</find>
-      <find>rabbit-close</find>
-      <find>rabbit-close-btn</find>
-      <find>local</find>
-      <find>close-btn</find>
-      <find>.close</find>
-      <find>rabbit-toggle</find>
-      <find>rabbit-destroy-btn</find>
-      <find>destroy</find>
-      <find>.destroy();</find>
       <find>rabbitTooltipOptContent</find>
       <find>opt-conten</find>
       <find>rabbit-confirm-destroy-btn</find>
       <find>destroy-btn</find>
       <find>EARS_OUT</find>
-      <find>.rabbit-tooltip-main-content</find>
       <find>rabbit-play-btn-yes</find>
       <find>no</find>
       <find>rabbit-tooltip</find>
+      <find>rabbit-destroy</find>
       <find>.rabbit-destroy-btn</find>
+      <find>mac</find>
+      <find>.rabbit-tooltip-main-content</find>
+      <find>confirm</find>
+      <find>rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');</find>
+      <find>fillupTooltip</find>
+      <find>.rabbit-play-btn</find>
+      <find>solid</find>
+      <find>generateSpans</find>
+      <find>hidden', 'solid</find>
+      <find>rerun</find>
+      <find>generate</find>
+      <find>generateSpa</find>
+      <find>rerun(</find>
+      <find>console.log</find>
+      <find>rabbit-tooltip-main-content</find>
+      <find>rabbit-tooltip-wrapper</find>
+      <find>.rabbit-tooltip-wrapper</find>
+      <find>.rabbit-tooltip-inner</find>
+      <find>right</find>
+      <find>clearSta</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,10 +112,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/sass/main.scss" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/sass/main.scss" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -204,30 +218,31 @@
       <option name="presentableId" value="Default" />
       <updated>1555308251538</updated>
       <workItem from="1555308252751" duration="22178000" />
-      <workItem from="1555360156461" duration="20711000" />
+      <workItem from="1555360156461" duration="23090000" />
+      <workItem from="1555423855745" duration="12900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42889000" />
+    <option name="totallyTimeSpent" value="58168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7092469" visible="true" weight="0.17527822" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7661597" visible="true" weight="0.17527822" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Gulp" order="2" sideWeight="0.2907531" side_tool="true" visible="true" weight="0.17527822" />
+      <window_info id="Gulp" order="2" sideWeight="0.2338403" side_tool="true" visible="true" weight="0.17527822" />
       <window_info id="npm" order="3" sideWeight="0.5005225" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17075099" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.16837944" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32964426" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.24347825" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -273,35 +288,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#11;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="504">
+          <caret line="21" column="23" lean-forward="true" selection-end-line="592" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="271" column="9" selection-start-line="271" selection-start-column="9" selection-end-line="271" selection-end-column="9" />
+        <state relative-caret-position="315">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="274">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="665" column="76" selection-start-line="665" selection-start-column="76" selection-end-line="665" selection-end-column="76" />
+        <state relative-caret-position="570">
+          <caret line="571" column="11" lean-forward="true" selection-start-line="571" selection-start-column="11" selection-end-line="571" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#4737#7215#0" />
+            <element signature="e#7242#11128#0" />
+          </folding>
         </state>
       </provider>
     </entry>
