@@ -153,136 +153,146 @@ if (!window.BunnyMessages) {
             return matched.length>0 ? matched : withoutFilter;
         },
     }
+
+    var generalProb = 0.25;
+
+    BunnyMessages.messages = [
+        {
+            html: 'Howdy! Welcome to Eggsponea!',
+            url: /home/,
+            probability: 1, // %/100
+            displayAfter: 1, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'Lost? Start from the eggining.',
+            url: /dashboards/,
+            probability: 1, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'Be a hoptimist. But don\'t eggsagerate.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'You say import, I say eggsport.',
+            url: /imports/,
+            probability: 1, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'Eggsperiments, don\'t you just love them?',
+            url: /experiments/,
+            probability: 1, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'Divide and rule. Use Seggmentations.',
+            url: /segmentations/,
+            probability: 1, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'They say I should eggsercise. But I just doesn’t carrot all.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'My family watched this Bruce Lee movie last night. In the end, every bunny was kung-fu fighting.',
+            url: null,
+            probability: 0.15, // %/100
+            displayAfter: 50, // sec
+            repeatInterval: 500, // sec
+        },
+        {
+            html: 'I have so many easter puns it’s not even bunny.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'Gotye? Isn’t that just some bunny that I used to know?',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'That fourth cup of coffee was a mistake. Now I’m all hopped up.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 100, // sec
+        },
+        {
+            html: 'Don’t wait for me to start the meeting. I might be a rabbit late.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 200, // sec
+        },
+        {
+            html: 'What did I get my girlfriend for her birthday? A 10-carrot ring. Yeah.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'In order to be a good leader, you need to lead by eggzample.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'Find and replace? Use RegEggs.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 2, // sec
+            repeatInterval: 50, // sec
+        },
+        {
+            html: 'How are rabbits and calculators alike? They multiply quickly.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 14, // sec
+            repeatInterval: 35, // sec
+        },
+        {
+            html: 'How many rabbits does it take to change a light bulb? Only one if it hops right to it.',
+            url: null,
+            probability: generalProb, // %/100
+            displayAfter: 10, // sec
+            repeatInterval: 150, // sec
+        }
+    ];
 }
 
-var generalProb = 0.25;
-
-BunnyMessages.messages = [
-    {
-        html: 'Howdy! Welcome to Eggsponea!',
-        url: /home/,
-        probability: 1, // %/100
-        displayAfter: 1, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'Lost? Start from the eggining.',
-        url: /dashboards/,
-        probability: 1, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'Be a hoptimist. But don\'t eggsagerate.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'You say import, I say eggsport.',
-        url: /imports/,
-        probability: 1, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'Eggsperiments, don\'t you just love them?',
-        url: /experiments/,
-        probability: 1, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'Divide and rule. Use Seggmentations.',
-        url: /segmentations/,
-        probability: 1, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'They say I should eggsercise. But I just doesn’t carrot all.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'My family watched this Bruce Lee movie last night. In the end, every bunny was kung-fu fighting.',
-        url: null,
-        probability: 0.15, // %/100
-        displayAfter: 50, // sec
-        repeatInterval: 500, // sec
-    },
-    {
-        html: 'I have so many easter puns it’s not even bunny.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'Gotye? Isn’t that just some bunny that I used to know?',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'That fourth cup of coffee was a mistake. Now I’m all hopped up.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 100, // sec
-    },
-    {
-        html: 'Don’t wait for me to start the meeting. I might be a rabbit late.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 200, // sec
-    },
-    {
-        html: 'What did I get my girlfriend for her birthday? A 10-carrot ring. Yeah.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'In order to be a good leader, you need to lead by eggzample.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'Find and replace? Use RegEggs.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 2, // sec
-        repeatInterval: 50, // sec
-    },
-    {
-        html: 'How are rabbits and calculators alike? They multiply quickly.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 14, // sec
-        repeatInterval: 35, // sec
-    },
-    {
-        html: 'How many rabbits does it take to change a light bulb? Only one if it hops right to it.',
-        url: null,
-        probability: generalProb, // %/100
-        displayAfter: 10, // sec
-        repeatInterval: 150, // sec
-    }
-];
-/* ============================================================================================ */
 
 /* ============================================================================================ */
-if (!window.rabbitBehavior) {
-    var rabbitBehavior = {
+
+if (window.rabbitBehavior) {
+    rabbitBehavior.easterRabbitInjectWrapper && rabbitBehavior.destroy();
+    // delete all rabbit wrappers except the last one
+    rabbitBehavior.removeUnusedRabbits && rabbitBehavior.removeUnusedRabbits();
+    // reset binded listeners
+    BunnyMessages.listeners = [];
+    BunnyMessages.lastURL = null;
+}
+/* ============================================================================================ */
+if (true || !window.rabbitBehavior) {
+    window.rabbitBehavior = {
         allDirections: ['right', 'top', 'bottom'],
         rabbitWrapper: document.querySelector('.rabbit-wrapper'),
         canvasWrapper: document.querySelector('.rabbit-canvas-wrapper'),
@@ -294,6 +304,7 @@ if (!window.rabbitBehavior) {
         rabbitTooltipHtml: '<p>Howdy! Welcome to Eggsponea!</p>',
         confirmYesBtn: document.querySelector('.rabbit-confirm-yes-btn'),
         confirmNoBtn: document.querySelector('.rabbit-confirm-no-btn'),
+        easterRabbitInjectWrapper: document.querySelector('.easter-rabbit-inject-wrapper'),
         afterInitRoundInterval: null,
         onBlurTimeout: null,
         intervalDuration: 15000,
@@ -305,6 +316,7 @@ if (!window.rabbitBehavior) {
         state: undefined,
         timeoutRef: null,
         preventBlur: false,
+        currentMsg: '',
         init: function() {
             this.bindEvents();
             this.start();
@@ -432,8 +444,7 @@ if (!window.rabbitBehavior) {
 
         destroy: function() {
             rabbitBehavior.clearStates();
-            rabbitBehavior.canvasWrapper.remove();
-            localStorage.setItem(rabbitBehavior.isRabbitDestroyed, 'yes');
+            rabbitBehavior.easterRabbitInjectWrapper && rabbitBehavior.easterRabbitInjectWrapper.remove();
         },
 
         openConfirm: function() {
@@ -452,7 +463,9 @@ if (!window.rabbitBehavior) {
         confirmDestroy: function() {
             if(this.confirmYesBtn) {
                 this.confirmYesBtn.addEventListener('click', function(){
+                    localStorage.setItem(rabbitBehavior.isRabbitDestroyed, 'yes');
                     rabbitBehavior.destroy();
+                    window.exponea.track('bunny_2019', getEventPropertiesBunny('destroy', true, rabbitBehavior.currentMsg));
                 });
             }
         },
@@ -462,6 +475,7 @@ if (!window.rabbitBehavior) {
                 this.confirmNoBtn.addEventListener('click', function(){
                     rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');
                     rabbitBehavior.rabbitTooltipMainContent.classList.remove('hidden');
+                    window.exponea.track('bunny_2019', getEventPropertiesBunny('hide', true, rabbitBehavior.currentMsg));
                 });
             }
         },
@@ -471,12 +485,14 @@ if (!window.rabbitBehavior) {
                 if(rabbitBehavior.state === rabbitBehavior.STATE_EARS_OUT) {
                     rabbitBehavior.clearStates();
                     rabbitBehavior.stateRabbitOut();
+                    window.exponea.track('bunny_2019', getEventPropertiesBunny('show-click', true, rabbitBehavior.currentMsg));
                 }
             });
         },
 
         onHover: function(){
             this.rabbitWrapper.addEventListener('mouseover', function(){
+                rabbitBehavior.destroyBtn.classList.add('visible');
                 if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
                     clearTimeout(rabbitBehavior.onBlurTimeout);
                     rabbitBehavior.clearStates();
@@ -486,6 +502,9 @@ if (!window.rabbitBehavior) {
 
         onBlur: function(){
             this.rabbitWrapper.addEventListener('mouseleave', function(){
+                setTimeout(function () {
+                    rabbitBehavior.destroyBtn.classList.remove('visible');
+                }, 800);
                 if(!rabbitBehavior.preventBlur) {
                     if(rabbitBehavior.state === rabbitBehavior.STATE_RABBIT_SPEAKS) {
                         rabbitBehavior.onBlurTimeout = setTimeout(function(){
@@ -546,23 +565,49 @@ if (!window.rabbitBehavior) {
             }
 
             this.state = this.STATE_RABBIT_SPEAKS;
+        },
+        removeUnusedRabbits: function() {
+            this.easterRabbitInjectWrapper = document.querySelectorAll('.easter-rabbit-inject-wrapper');
+            // for all except last one
+            for (var i = 0; i < rabbitBehavior.easterRabbitInjectWrapper.length-1; i++) {
+                rabbitBehavior.easterRabbitInjectWrapper[i].remove();
+            }
+            var elms = document.querySelectorAll('.rabbit-canvas-wrapper');
+            // for all except last one
+            for (var i = 0; i < elms.length-1; i++) {
+                elms[i].remove();
+            }
         }
     }
 }
 
+function getEventPropertiesBunny(action, interactive, message) {
+    return {
+        action: action,
+        message: message,
+        interaction: interactive !== false ? true : false,
+        location: window.location.href, path: window.location.pathname
+    };
+}
+
+window.destroyEasterBunnyManually = false;
+var workUntilBunny = new Date(2019, 4-1, 24, 0, 0, 0); // 24.4.2019 00:00:00 (Wednesday)
+
 // if wrapper element exists
-if(this.canvasWrapper !== null) {
+if(new Date()<workUntilBunny && !destroyEasterBunnyManually) {
     // if rabbit must be destroyed
     if(localStorage.getItem(rabbitBehavior.isRabbitDestroyed) === 'yes') {
-        rabbitBehavior.canvasWrapper.remove();
+        rabbitBehavior.easterRabbitInjectWrapper.remove();
     } else {
         BunnyMessages.init();
         BunnyMessages.bind(function(message) {
             // if message is filled out and is not empty
             if(message && message !== "") {
+                rabbitBehavior.currentMsg = message.html;
                 // if rabbitBehavior object exists
                 if (window.rabbitBehavior) {
                     rabbitBehavior.fillUpTooltip(message.html);
+                    window.exponea.track('bunny_2019', getEventPropertiesBunny('show-automatic', false, message.html));
                     if (rabbitBehavior.state === undefined) {
                         rabbitBehavior.init();
                     }

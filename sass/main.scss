@@ -486,8 +486,14 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 }
 .rabbit-destroy-btn {
+	transition: opacity .25s ease;
 	right: -8px;
 	top: -35px;
+	opacity: 0;
+
+	&.visible {
+		opacity: 1;
+	}
 
 	&::before,
 	&::after {
@@ -499,9 +505,11 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		width: 4%;
 		background-color: #252122;
 	}
+
 	&::after {
 		transform: translate(-50%, -50%) rotate(45deg);
 	}
+
 	&::before {
 		transform: translate(-50%, -50%) rotate(135deg);
 	}

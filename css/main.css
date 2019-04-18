@@ -366,8 +366,13 @@
     top: 6.5px; }
 
 .rabbit-destroy-btn {
+  -webkit-transition: opacity .25s ease;
+  transition: opacity .25s ease;
   right: -8px;
-  top: -35px; }
+  top: -35px;
+  opacity: 0; }
+  .rabbit-destroy-btn.visible {
+    opacity: 1; }
   .rabbit-destroy-btn::before, .rabbit-destroy-btn::after {
     content: "";
     position: absolute;
