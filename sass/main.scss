@@ -64,7 +64,7 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	left: 0;
 	z-index: 120000;
 	overflow: hidden;
-	pointer-events: none; // HIDING
+	pointer-events: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -217,8 +217,8 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	position: absolute;
 	width: $wrapper-width;
 	height: $wrapper-width;
-	pointer-events: none; // HIDING
-	opacity: 0; // HIDING
+	pointer-events: none;
+	opacity: 0;
 	transition: opacity .25s ease;
 	cursor: pointer;
 }
@@ -399,8 +399,8 @@ $rabbit-custom-cubic-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	text-align: center;
 	min-width: 160px;
 	max-width: 220px;
-	opacity: 0; // HIDING
-	pointer-events: none; // HIDING
+	opacity: 0;
+	pointer-events: none;
 	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 
 	.rabbit-tooltip-inner {

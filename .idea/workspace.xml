@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a99e4547-3eb9-485f-8233-c4ab6e370ad7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/main.scss" afterDir="false" />
     </list>
@@ -28,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="528">
+              <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
               <folding>
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -40,11 +38,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="81" column="28" lean-forward="true" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+            <state relative-caret-position="627">
+              <caret line="622" column="26" lean-forward="true" selection-start-line="622" selection-start-column="26" selection-end-line="622" selection-end-column="26" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="n#!!block;n#generateSpans#0" />
+                <element signature="n#!!block;n#showText#0" />
+                <element signature="n#!!block;n#rerun#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sass/main.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -53,16 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>solid</find>
-      <find>generateSpans</find>
-      <find>hidden', 'solid</find>
-      <find>rerun</find>
-      <find>generate</find>
-      <find>generateSpa</find>
-      <find>rerun(</find>
-      <find>console.log</find>
-      <find>rabbit-tooltip-main-content</find>
-      <find>rabbit-tooltip-wrapper</find>
       <find>.rabbit-tooltip-wrapper</find>
       <find>.rabbit-tooltip-inner</find>
       <find>right</find>
@@ -83,6 +83,16 @@
       <find>rabbit-desto</find>
       <find>hover</find>
       <find>.rabbit-destroy-btn</find>
+      <find>// HIDING</find>
+      <find>.exponea</find>
+      <find>workUntilBunny</find>
+      <find>destroyEasterBunnyManually</find>
+      <find>.bind</find>
+      <find>.bind(</find>
+      <find>lastURL</find>
+      <find>handler</find>
+      <find>listeners</find>
+      <find>chooseMessage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,8 +103,8 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/css/main.css" />
-        <option value="$PROJECT_DIR$/sass/main.scss" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/sass/main.scss" />
         <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
@@ -110,7 +120,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +146,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,19 +212,21 @@
       <workItem from="1555423855745" duration="21187000" />
       <workItem from="1555500964768" duration="7531000" />
       <workItem from="1555509563836" duration="31000" />
-      <workItem from="1555513742908" duration="7371000" />
+      <workItem from="1555513742908" duration="7881000" />
+      <workItem from="1556865058047" duration="6772000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81388000" />
+    <option name="totallyTimeSpent" value="88670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.76363635" visible="true" weight="0.17527822" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7628459" visible="true" weight="0.1764706" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" id="Gulp" order="2" sideWeight="0.23636363" side_tool="true" visible="true" weight="0.17527822" />
+      <window_info id="Gulp" order="2" sideWeight="0.23715416" side_tool="true" visible="true" weight="0.1764706" />
       <window_info id="npm" order="3" sideWeight="0.5005225" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -279,15 +291,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="489" column="16" lean-forward="true" selection-start-line="489" selection-start-column="16" selection-end-line="489" selection-end-column="16" />
+        <state relative-caret-position="600">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="528">
+          <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
@@ -296,10 +308,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="81" column="28" lean-forward="true" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
+        <state relative-caret-position="627">
+          <caret line="622" column="26" lean-forward="true" selection-start-line="622" selection-start-column="26" selection-end-line="622" selection-end-column="26" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#generateSpans#0" />
+            <element signature="n#!!block;n#showText#0" />
+            <element signature="n#!!block;n#rerun#0" />
           </folding>
         </state>
       </provider>

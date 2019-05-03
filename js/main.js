@@ -1,5 +1,4 @@
 /* ============================================================================================ */
-
 function generateSpans(element) {
     if(!element) {
         return;
@@ -74,8 +73,6 @@ function rerun() {
     }
     setTimeout(showText, 150);
 }
-/* ============================================================================================ */
-
 
 /* ============================================================================================ */
 if (!window.BunnyMessages) {
@@ -279,17 +276,16 @@ if (!window.BunnyMessages) {
     ];
 }
 
-
 /* ============================================================================================ */
-
-if (window.rabbitBehavior) {
+/*if (window.rabbitBehavior) {
     rabbitBehavior.easterRabbitInjectWrapper && rabbitBehavior.destroy();
     // delete all rabbit wrappers except the last one
     rabbitBehavior.removeUnusedRabbits && rabbitBehavior.removeUnusedRabbits();
     // reset binded listeners
     BunnyMessages.listeners = [];
     BunnyMessages.lastURL = null;
-}
+}*/
+
 /* ============================================================================================ */
 if (true || !window.rabbitBehavior) {
     window.rabbitBehavior = {
@@ -465,7 +461,9 @@ if (true || !window.rabbitBehavior) {
                 this.confirmYesBtn.addEventListener('click', function(){
                     localStorage.setItem(rabbitBehavior.isRabbitDestroyed, 'yes');
                     rabbitBehavior.destroy();
-                    window.exponea.track('bunny_2019', getEventPropertiesBunny('destroy', true, rabbitBehavior.currentMsg));
+                    /*  PART OF THE EXPONEA TRACKING
+                        window.exponea.track('bunny_2019', getEventPropertiesBunny('destroy', true, rabbitBehavior.currentMsg));
+                     */
                 });
             }
         },
@@ -475,7 +473,9 @@ if (true || !window.rabbitBehavior) {
                 this.confirmNoBtn.addEventListener('click', function(){
                     rabbitBehavior.rabbitTooltipOptContent.classList.add('hidden');
                     rabbitBehavior.rabbitTooltipMainContent.classList.remove('hidden');
-                    window.exponea.track('bunny_2019', getEventPropertiesBunny('hide', true, rabbitBehavior.currentMsg));
+                    /*  PART OF THE EXPONEA TRACKING
+                        window.exponea.track('bunny_2019', getEventPropertiesBunny('hide', true, rabbitBehavior.currentMsg));
+                     */
                 });
             }
         },
@@ -485,7 +485,9 @@ if (true || !window.rabbitBehavior) {
                 if(rabbitBehavior.state === rabbitBehavior.STATE_EARS_OUT) {
                     rabbitBehavior.clearStates();
                     rabbitBehavior.stateRabbitOut();
-                    window.exponea.track('bunny_2019', getEventPropertiesBunny('show-click', true, rabbitBehavior.currentMsg));
+                    /*  PART OF THE EXPONEA TRACKING
+                        window.exponea.track('bunny_2019', getEventPropertiesBunny('show-click', true, rabbitBehavior.currentMsg));
+                     */
                 }
             });
         },
@@ -581,6 +583,7 @@ if (true || !window.rabbitBehavior) {
     }
 }
 
+/* ================================= PART OF THE EXPONEA TRACKING ============================= */
 function getEventPropertiesBunny(action, interactive, message) {
     return {
         action: action,
@@ -589,9 +592,10 @@ function getEventPropertiesBunny(action, interactive, message) {
         location: window.location.href, path: window.location.pathname
     };
 }
+/* ============================================ END =========================================== */
 
 window.destroyEasterBunnyManually = false;
-var workUntilBunny = new Date(2019, 4-1, 24, 0, 0, 0); // 24.4.2019 00:00:00 (Wednesday)
+var workUntilBunny = new Date(2025, 4-1, 24, 0, 0, 0); // 24.4.2019 00:00:00 (Wednesday)
 
 // if wrapper element exists
 if(new Date()<workUntilBunny && !destroyEasterBunnyManually) {
@@ -599,15 +603,20 @@ if(new Date()<workUntilBunny && !destroyEasterBunnyManually) {
     if(localStorage.getItem(rabbitBehavior.isRabbitDestroyed) === 'yes') {
         rabbitBehavior.easterRabbitInjectWrapper.remove();
     } else {
-        BunnyMessages.init();
-        BunnyMessages.bind(function(message) {
+        // THIS PART IS COMMENTED OUT BECAUSE IT RELIES ON EXPONEA APP URLS
+        //BunnyMessages.init();
+        //BunnyMessages.bind(function(message) {
             // if message is filled out and is not empty
+            var message = BunnyMessages.messages[0].html; // just choose first message from messages, this is opposite behavior of dynamic choosing of messages based on urls of app
+            console.log(message);
             if(message && message !== "") {
-                rabbitBehavior.currentMsg = message.html;
+                rabbitBehavior.currentMsg = message;
                 // if rabbitBehavior object exists
                 if (window.rabbitBehavior) {
-                    rabbitBehavior.fillUpTooltip(message.html);
-                    window.exponea.track('bunny_2019', getEventPropertiesBunny('show-automatic', false, message.html));
+                    rabbitBehavior.fillUpTooltip(message);
+                    /*  PART OF THE EXPONEA TRACKING
+                        window.exponea.track('bunny_2019', getEventPropertiesBunny('show-automatic', false, message.html));
+                     */
                     if (rabbitBehavior.state === undefined) {
                         rabbitBehavior.init();
                     }
@@ -622,8 +631,7 @@ if(new Date()<workUntilBunny && !destroyEasterBunnyManually) {
                     }
                 }
             }
-        });
+        //});
     }
 }
-
 /* ============================================================================================ */
